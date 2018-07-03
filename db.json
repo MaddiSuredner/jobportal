@@ -1,0 +1,34 @@
+{
+  "authenticate": {
+    "token": "some-unique-token"
+  },
+  "user": [
+    {
+      "id": 1,
+      "username": "admin",
+      "usertype": "emp",
+      "inputPassword": "test",
+      "confPass": "test",
+      "phonenumber": "9492114987",
+      "email": "sada@gmail.com"
+    },
+    {
+      "usertype": "user",
+      "username": "Sadashivudu Balabhadra",
+      "inputPassword": "Welcome",
+      "confPass": "Welcome",
+      "phonenumber": "9492114987",
+      "email": "sbalabadra@gmail.com",
+      "id": 2
+    },
+    {
+      "usertype": "emp",
+      "username": "Siva",
+      "inputPassword": "siva@123",
+      "confPass": "siva@123",
+      "phonenumber": "9550234567",
+      "email": "siva@gmail.com",
+      "id": 3
+    }
+  ]
+}
