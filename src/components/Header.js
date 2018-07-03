@@ -6,7 +6,7 @@ class Header extends React.Component {
   render() {
   	
     return (
-      	<nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-danger">
+      	<nav className={(this.props.loggedIn && this.props.userinfo.usertype == "emp")?"navbar navbar-expand-lg fixed-top navbar-dark bg-primary":"navbar navbar-expand-lg fixed-top navbar-dark bg-danger"}>
 		  <Link className="navbar-brand" to="/">Verizon</Link>
 		  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
 		  		aria-controls="navbarNav" aria-expanded="false" 
@@ -22,7 +22,11 @@ class Header extends React.Component {
 		      </li>
 		      <li className="nav-item">
 		      	<div className="nav-link">
-		        	<NavLink to="/features">Features</NavLink>
+		      	{
+		      		(this.props.loggedIn) ? <NavLink to="/applied">
+		        		{(this.props.userinfo.usertype == "user")?"Applied Jobs":"Post New Jobs"}
+		        	</NavLink>:null
+		        }
 		        </div>
 		      </li>
 		      <li className="nav-item">
