@@ -1,12 +1,20 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 
 class Search extends React.Component {
   render() {
     return (
-      <h1>Welcome to Search Page !!</h1>
+      <div >
+        <h1>Welcome to Search Page</h1>
+      </div>
     );
   }
 }
 
-export default Search;
+function mapStateToProps(state, ownProps){
+	return {
+		loggedIn : state.login.loggedIn
+	};
+}
+const SearchContainer = connect(mapStateToProps)(Search);
+export default SearchContainer;

@@ -5,16 +5,18 @@ import Home from "./Home";
 import Search from "./Search";
 import LoginContainer from "../containers/LoginContainer";
 import Logout from "./Logout";
+import SignupContainer from "../containers/SignupContainer";
 
 class Body extends React.Component {
   render() {
     return (
       <div className="container-fluid" style={{"margin-top":"60px"}}>
       	<Switch>
-      		<Route path="/" exact componet={Home} />
-      		<Route path="/search" componet={Search} />
-      		<Route path="/login" componet={LoginContainer} />
-      		<Route path="/logout" componet={Logout} />
+      		<Route path="/" exact component={Home} />
+      		<Route path="/search" component={Search} />
+      		<Route path="/login" component={LoginContainer} />
+      		<Route path="/logout" component={Logout} />
+      		<Route path="/signup" component={SignupContainer} />
       	</Switch>
       </div>
     );
