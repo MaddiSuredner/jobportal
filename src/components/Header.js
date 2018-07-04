@@ -23,7 +23,7 @@ class Header extends React.Component {
 		      <li className="nav-item">
 		      	<div className="nav-link">
 		      	{
-		      		(this.props.loggedIn) ? <NavLink to="/applied">
+		      		(this.props.loggedIn) ? <NavLink to="/apply">
 		        		{(this.props.userinfo.usertype == "user")?"Apply Jobs":"Post New Jobs"}
 		        	</NavLink>:null
 		        }
