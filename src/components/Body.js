@@ -15,7 +15,7 @@ class Body extends React.Component {
       <div className="container-fluid" style={{"margin-top":"60px"}}>
       	<Switch>
       		<Route path="/" exact component={Home} />
-      		<Route path="/applied" component={AppliedJobs} />
+      		<Route path="/apply" component={AppliedJobs} />
       		<Route path="/search" component={Search} />
       		<Route path="/profile" component={ProfileContainer} />
       		<Route path="/login" component={LoginContainer} />

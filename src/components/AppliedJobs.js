@@ -29,7 +29,7 @@ class AppliedJobs extends React.Component {
     }
     applyJob(job) {
 	 	this.props.jobHandler(job, this.props.userinfo);
-	 	<Redirect to="/profile" />
+	 	return (<Redirect to="/profile" />);
 	}
     render() {
   		if(!this.props.loggedIn) {
