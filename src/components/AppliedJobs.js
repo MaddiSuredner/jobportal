@@ -11,7 +11,8 @@ class AppliedJobs extends React.Component {
 
        this.state = {
            jobs: [],
-           fields:{}
+           fields:{},
+           redirect: false
        }
        this.loadJobs();
     }
@@ -29,9 +30,12 @@ class AppliedJobs extends React.Component {
     }
     applyJob(job) {
 	 	this.props.jobHandler(job, this.props.userinfo);
-	 	return (<Redirect to="/profile" />);
+	 	this.setState({ redirect: true });	 	
 	}
     render() {
+    	 if (this.state.redirect) {
+       		return <Redirect to='/profile'/>;
+     	 }
   		if(!this.props.loggedIn) {
 			return(<Redirect to="/" />);
 		}
