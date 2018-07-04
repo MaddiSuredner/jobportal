@@ -1,6 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {jobAction} from "../actions/loginActions";
 
 import axios from 'axios';
 
@@ -26,19 +27,22 @@ class AppliedJobs extends React.Component {
 			console.log(error.message);
 		});
     }
+    applyJob(job) {
+	 	this.props.jobHandler(job, this.props.userinfo);
+	 	<Redirect to="/profile" />
+	}
     render() {
   		if(!this.props.loggedIn) {
 			return(<Redirect to="/" />);
 		}
-	    return (
+		return (
 	      	<div className="container-fluid ">
 	        	<div class="container">
 				  <h2>Job Positions opened</h2>
 				  <table class="table table-bordered">
 				    <thead class="thead-dark">
 				      <tr>
-				      	<th></th>
-				        <th>Job Title</th>
+				      	<th>Job Title</th>
 				        <th>Description</th>
 				        <th>Skills</th>
 				        <th>Experience</th>
@@ -48,21 +52,19 @@ class AppliedJobs extends React.Component {
 				      </tr>
 				    </thead>
 				    <tbody>
-				    	{
-				          this.state.jobs.map(function(job) {
-				            return <tr key={job.jobid}>
-				            <td>
-				            <input type="radio" name="jobid" value={job.jobid}/></td>
+				    	{this.state.jobs.map((job, idx) => (
+				            <tr key={job.jobid}>
 				            <td>{job.jobtitle}</td>
 				            <td>{job.description}</td>
 				            <td>{job.skills}</td>
 				            <td>{job.experience}</td>
 				            <td>{job.education}</td>
 				            <td>{job.state}</td>
-				            <td><button className="btn btn-danger">Apply</button></td>
+				            <td><button type="submit" className="btn btn-danger"
+				            	 onClick={this.applyJob.bind(this,job)}>Apply</button></td>
 				            </tr>
-				          })
-        				}				      				     
+				          ))}
+        							      				     
 				    </tbody>
 				  </table>
 				</div>
@@ -77,6 +79,13 @@ function mapStateToProps(state, ownProps){
 		userinfo : state.login.userinfo
 	};
 }
-const JobsContainer = connect(mapStateToProps)(AppliedJobs);
+function mapDispatchToProps(dispatch, ownProps){
+	return {
+		jobHandler : (job, userinfo) => {
+			dispatch(jobAction(job, userinfo));			
+		}
+	}
+}
+const JobsContainer = connect(mapStateToProps,mapDispatchToProps)(AppliedJobs);
 
 export default JobsContainer;

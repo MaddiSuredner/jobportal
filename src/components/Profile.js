@@ -93,8 +93,19 @@ class Profile extends React.Component {
 	    	<div className="card" style={{width: "50%","margin-top":"100px","margin-left":"100px"}}>
 			<div class="card-body">
 			<form onSubmit= {this.contactSubmit.bind(this)}>
-				
-				<div className="form-group row">
+				  <div className="form-group row">
+				    <label for="username" className="col-sm-2 col-form-label">Job Title : </label>
+				    <div className="col-sm-5">
+				      {this.props.jobinfo.jobtitle}
+				    </div>  
+				  </div>
+				  <div className="form-group row">
+				    <label for="username" className="col-sm-2 col-form-label">Job Description : </label>
+				    <div className="col-sm-5">
+				      {this.props.jobinfo.description}
+				    </div>  
+				  </div>
+				  <div className="form-group row">
 				    <label for="username" className="col-sm-2 col-form-label">User Name : </label>
 				    <div className="col-sm-5">
 				      {this.props.userinfo.username}
@@ -184,7 +195,8 @@ class Profile extends React.Component {
 function mapStateToProps(state, ownProps){
 	return {
 		loggedIn : state.login.loggedIn,
-		userinfo : state.login.userinfo
+		userinfo : state.login.userinfo,
+		jobinfo : state.login.jobinfo
 	};
 }
 const ProfileContainer = connect(mapStateToProps)(Profile);

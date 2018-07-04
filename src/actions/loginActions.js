@@ -40,3 +40,9 @@ export function signUpAction(formData){
 export function logoutAction() {
 	return {type:"LOGOUT"};
 }
+
+export function jobAction(job,userinfo){
+	return function(dispatch, store){
+		dispatch({type:"APPLYJOB",userinfo:userinfo,jobinfo:job});
+	};
+}

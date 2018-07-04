@@ -2,6 +2,7 @@ const defaultState = {
 	fetching:false,
 	loggedIn:false,
 	userinfo:{},
+	jobinfo:{},
 	error:""
 };
 
@@ -26,6 +27,11 @@ function loginReducer(prevState = defaultState, action){
 		case "LOGOUT":
 			newState = {
 				...prevState, fetching:false, loggedIn:false, error:"",userinfo:{},
+			};
+			break;
+		case "APPLYJOB":
+			newState = {
+				...prevState, fetching:false, loggedIn:true, error:"",userinfo:action.userinfo,jobinfo:action.jobinfo,
 			};
 			break;
 		default:
