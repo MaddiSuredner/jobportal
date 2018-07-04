@@ -183,9 +183,9 @@ class Signup extends React.Component {
 				  </div>
 				 
 				  <div className="form-group row"  style={{"margin-left":"7rem"}}>
-					  <button type="submit" className="btn btn-primary">Submit</button>
+					  <button type="submit" className="btn btn-danger">Register</button>
 					  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					  <button type="reset" className="btn btn-primary">Reset</button>
+					  <button type="reset" className="btn btn-danger">Reset</button>
 				  </div>
 			</form>
 			</div>

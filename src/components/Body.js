@@ -8,6 +8,7 @@ import Logout from "./Logout";
 import SignupContainer from "../containers/SignupContainer";
 import AppliedJobs from "./AppliedJobs";
 import ProfileContainer from "./Profile";
+import PostJobContainer from "./PostJob";
 
 class Body extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Body extends React.Component {
       		<Route path="/login" component={LoginContainer} />
       		<Route path="/logout" component={Logout} />
       		<Route path="/signup" component={SignupContainer} />
+          <Route path="/postjob" component={PostJobContainer} />
       	</Switch>
       </div>
     );

@@ -33,7 +33,7 @@ class Header extends React.Component {
 		      		(this.props.loggedIn && this.props.userinfo.usertype == "emp") ? 
 		      		<li className="nav-item">
 			      		<div className="nav-link">
-			        		<NavLink to="/post">Post New Jobs</NavLink>
+			        		<NavLink to="/postjob">Post New Jobs</NavLink>
 			        	</div>
 		      		</li>
 		        	:null
