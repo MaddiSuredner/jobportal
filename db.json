@@ -2,6 +2,28 @@
   "authenticate": {
     "token": "some-unique-token"
   },
+  "jobs":[
+    {
+      "id": 1,
+      "jobid": "rrdeveloper",
+      "jobtitle": "React and Redux developer",
+      "description": "We need React and Redux developer for contract postion",
+      "skills": ["React JS", "NoSql","HTML5","Bootstrap"],
+      "experience": "2 to 4 years",
+      "education": "B.Tech (CSE) or equivalent degree",
+      "state":"Hyderabad, IN"    
+    },
+    {
+      "id": 1,
+      "jobid": "ajdeveloper",
+      "jobtitle": "Angular JS developer",
+      "description": "We need Angular JS developer for permanent postion",
+      "skills": ["Angular JS", "NoSql","HTML5","Bootstrap"],
+      "experience": "2 to 4 years",
+      "education": "B.Tech (CSE) or equivalent degree",
+      "state":"Chennai, IN"       
+    }
+  ],
   "user": [
     {
       "id": 1,
