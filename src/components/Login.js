@@ -120,9 +120,9 @@ class Login extends React.Component {
 				    <small id="inputPassword" class="form-text text-danger">{this.state.errors["inputPassword"]}</small>
 				  </div>
 				  <div className="form-group row"  style={{"margin-left":"7rem"}}>
-					  <button type="submit" className="btn btn-primary">Submit</button>
+					  <button type="submit" className="btn btn-danger">Login</button>
 					  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					  <button type="reset" className="btn btn-primary">Reset</button>
+					  <button type="reset" className="btn btn-danger">Reset</button>
 				  </div>
 				  <div className="form-group row"  style={{"margin-left":"7rem"}}>
 				  	<small id="emailHelp" class="form-text text-muted">

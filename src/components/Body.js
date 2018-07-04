@@ -7,6 +7,7 @@ import LoginContainer from "../containers/LoginContainer";
 import Logout from "./Logout";
 import SignupContainer from "../containers/SignupContainer";
 import AppliedJobs from "./AppliedJobs";
+import ProfileContainer from "./Profile";
 
 class Body extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Body extends React.Component {
       		<Route path="/" exact component={Home} />
       		<Route path="/applied" component={AppliedJobs} />
       		<Route path="/search" component={Search} />
+      		<Route path="/profile" component={ProfileContainer} />
       		<Route path="/login" component={LoginContainer} />
       		<Route path="/logout" component={Logout} />
       		<Route path="/signup" component={SignupContainer} />

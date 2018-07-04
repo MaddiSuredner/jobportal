@@ -24,7 +24,7 @@ class Header extends React.Component {
 		      	<div className="nav-link">
 		      	{
 		      		(this.props.loggedIn) ? <NavLink to="/applied">
-		        		{(this.props.userinfo.usertype == "user")?"Applied Jobs":"Post New Jobs"}
+		        		{(this.props.userinfo.usertype == "user")?"Apply Jobs":"Post New Jobs"}
 		        	</NavLink>:null
 		        }
 		        </div>
@@ -34,6 +34,15 @@ class Header extends React.Component {
 		        	<NavLink to="/search">Search</NavLink>
 		        </div>
 		      </li>
+		       {
+		      		(this.props.loggedIn && this.props.userinfo.usertype == "user") ? 
+		      		<li className="nav-item">
+			      		<div className="nav-link">
+			        		<NavLink to="/profile">Profile</NavLink>
+			        	</div>
+		      		</li>
+		        	:null
+		       }		      
 		    </ul>
 		    <span class="navbar-text">
 		      	
