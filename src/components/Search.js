@@ -1,25 +1,36 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class Search extends React.Component {
+	constructor(props){
+       super(props);
+
+       this.state = {
+           jobs: [],
+           fields:{}
+       }      
+    }
+	searchJobs(e){
+        e.preventDefault();
+
+       axios.get("http://localhost:3000/jobs")
+		.then((response) => {
+			if(response.data && response.data.length > 0){
+				console.log(response.data);
+				this.setState({jobs: response.data});
+			} 			
+		})
+		.catch((error)=> {
+			console.log(error.message);
+		});
+    }
   render() {
     return (
         <div className="card" style={{width: "50%","margin-top":"100px","margin-left":"100px"}}>
 		<div class="card-body">
-        <form>
+        <form onSubmit= {this.searchJobs.bind(this)}>
   			<div className="form-group row">
-			    <label for="company" className="col-sm-2 col-form-label">Company :</label>
-			    <div className="col-sm-5">
-			      <select class="form-control" name="company" id="company">
-					  <option value="-1">Please select</option>
-					  <option value="1">Cognizant</option>
-					  <option value="2">Infosys</option>
-					  <option value="3">TCS</option>
-					  <option value="4">Verizon</option>
-					</select>
-			    </div>
-			</div>
-			<div className="form-group row">
 			    <label for="skill" className="col-sm-2 col-form-label">Skills :</label>
 			    <div className="col-sm-5">
 			      <select class="form-control" name="skill" id="skill">
@@ -50,6 +61,37 @@ class Search extends React.Component {
 		    </div>
 		</form>
         </div>
+        {(this.state.jobs.length > 0)?
+        	<div class="container">
+			  <h2>Job Positions opened</h2>
+			  <table class="table table-bordered">
+			    <thead class="thead-dark">
+			      <tr>
+			      	<th>Job Title</th>
+			        <th>Description</th>
+			        <th>Skills</th>
+			        <th>Experience</th>
+			        <th>Education</th>
+			        <th>Location</th>			       
+			      </tr>
+			    </thead>
+			    <tbody>
+			    	{this.state.jobs.map((job, idx) => (
+			            <tr key={job.jobid}>
+			            <td>{job.jobtitle}</td>
+			            <td>{job.description}</td>
+			            <td>{job.skills}</td>
+			            <td>{job.experience}</td>
+			            <td>{job.education}</td>
+			            <td>{job.state}</td>
+			            </tr>			            
+			          ))}
+								      				     
+			    </tbody>
+			  </table>
+			  <small class="form-text text-grayed">Please login to apply the job positions</small>
+			</div>
+		 :null}
         </div>
     );
   }

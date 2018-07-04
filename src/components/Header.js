@@ -20,20 +20,33 @@ class Header extends React.Component {
 		        	<NavLink to="/">Home</NavLink>
 		        </div>
 		      </li>
-		      <li className="nav-item">
-		      	<div className="nav-link">
-		      	{
-		      		(this.props.loggedIn) ? <NavLink to="/apply">
-		        		{(this.props.userinfo.usertype == "user")?"Apply Jobs":"Post New Jobs"}
-		        	</NavLink>:null
-		        }
-		        </div>
-		      </li>
-		      <li className="nav-item">
-		      	<div className="nav-link">
-		        	<NavLink to="/search">Search</NavLink>
-		        </div>
-		      </li>
+		       {
+		      		(this.props.loggedIn && this.props.userinfo.usertype == "user") ? 
+		      		<li className="nav-item">
+			      		<div className="nav-link">
+			        		<NavLink to="/apply">Apply Jobs</NavLink>
+			        	</div>
+		      		</li>
+		        	:null
+		       }
+		       {
+		      		(this.props.loggedIn && this.props.userinfo.usertype == "emp") ? 
+		      		<li className="nav-item">
+			      		<div className="nav-link">
+			        		<NavLink to="/post">Post New Jobs</NavLink>
+			        	</div>
+		      		</li>
+		        	:null
+		       }
+		       {
+		      		(!this.props.loggedIn) ? 
+		      		<li className="nav-item">
+			      		<div className="nav-link">
+			        		<NavLink to="/search">Search</NavLink>
+			        	</div>
+		      		</li>
+		        	:null
+		       }
 		       {
 		      		(this.props.loggedIn && this.props.userinfo.usertype == "user") ? 
 		      		<li className="nav-item">
